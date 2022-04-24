@@ -1,15 +1,11 @@
+{% extends 'index.html' %}
 {% load rest_framework %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% block content %}
+<div>
+
     {% if is_bills %}
+    <div>Bills upload</div><br>
     <form action="{% url 'upload_bills' %}"\
           method="post"
           enctype="multipart/form-data">      
@@ -20,9 +16,10 @@
 
         <button type="submit">Send</button>
         
-    </form>
+    </form><br>
 
     {% else %}
+    <div>Clients and organizations upload</div><br>
     <form action="{% url 'upload_clients_organizations' %}"\
           method="post"
           enctype="multipart/form-data">      
@@ -33,7 +30,7 @@
 
         <button type="submit">Send</button>
         
-    </form>
+    </form><br>
     {% endif %}
 
     {% if upload_resp %}
@@ -45,5 +42,5 @@
     </ul>
     {% endif %}
 
-</body>
-</html>
+</div>
+{% endblock %}

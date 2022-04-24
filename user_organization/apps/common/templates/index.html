@@ -1,3 +1,4 @@
+<!-- {% load rest_framework %} -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +6,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test assignment</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+        header {
+            display: flex;
+            column-gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 0 20px;
+            height: 70px;
+            margin-bottom: 20px;
+            background-color: rgb(205, 199, 199);
+        }
+
+        header > .header-item {
+            background-color: rgb(174, 177, 177);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        header > .header-item > a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    
+    <header>
+        <div class="header-item">
+            <a href="{% url 'bills_form' %}">
+                Upload bills
+            </a>
+        </div>
+        <div class="header-item">
+            <a href="{% url 'clients_organizations_form' %}">
+                Upload clients and organizations
+            </a>
+        </div>
+    </header>
+    {% block content %}
+    {% endblock %}
 </body>
 </html>

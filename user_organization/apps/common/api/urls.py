@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import upload
+from . import upload, client_data_api
 
 urlpatterns = [
     path(
@@ -23,4 +23,5 @@ urlpatterns = [
         upload.BillsUpload.as_view(),
         name='bills_form'
     ),
+    path('get-clients-table/', client_data_api.get_clients_table),
 ]
