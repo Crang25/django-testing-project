@@ -4,7 +4,11 @@
 
 {% block content %}
 
-    <table align="center" class="client-table">
+<div class="table-wrapper">
+    
+    <table align="center"
+            border="2px"
+           class="client-table">
         <tr>
             <th>Name</th>
             <th>Organizations count</th>
@@ -18,5 +22,7 @@
             </tr>
         {% endfor %}
     </table>
+    
+</div>
 
 {% endblock %}

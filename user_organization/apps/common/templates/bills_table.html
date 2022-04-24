@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% load rest_framework %}
+
+
+{% block content %}
+    <div class="bills-table-wrapper">
+        <form action="{% url 'bills_list' %}?client_name={{ client_form.client_name.value }}"
+              method="get">
+            {{ client_form }}
+            <button type="submit">Filter by client</button>
+        </form>
+        <form action="{% url 'bills_list' %}?organization_name={{ organization_form.organization_name.value }}"
+              method="get">
+            {{ organization_form }}
+            <button type="submit">Filter by organization</button>
+        </form>
+        <table class="bills-table"
+               align="center"
+               border="2px">
+
+            <tr>
+                <th>Number</th>
+                <th>Sum</th>
+                <th>Date</th>
+                <th>Client</th>
+                <th>Organization</th>
+            </tr>
+
+            {% for bill in bills %}
+                <tr>
+                    {% for value in bill.values %}
+                    <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+{% endblock %}
