@@ -4,11 +4,23 @@ from . import upload
 
 urlpatterns = [
     path(
-        'clients-organizations/',
-        upload.upload_clients_and_organizations
+        'upload-clients-organizations/',
+        upload.UploadOrganizationClients.as_view(),
+        name='upload_clients_organizations'
     ),
     path(
-        'bills/',
-        upload.upload_bills
+        'clients-organizations/',
+        upload.UploadOrganizationClients.as_view(),
+        name='clients_organizations_form'
+    ),
+    path(
+        'upload-bills/',
+        upload.BillsUpload.as_view(),
+        name='upload_bills'
+    ),
+    path(
+        'bills-page/',
+        upload.BillsUpload.as_view(),
+        name='bills_form'
     ),
 ]

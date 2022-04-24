@@ -1,0 +1,49 @@
+{% load rest_framework %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if is_bills %}
+    <form action="{% url 'upload_bills' %}"\
+          method="post"
+          enctype="multipart/form-data">      
+          {% csrf_token %}
+
+          <label for="bills"{{ label }}></label>
+          <input type="file" name="bills">
+
+        <button type="submit">Send</button>
+        
+    </form>
+
+    {% else %}
+    <form action="{% url 'upload_clients_organizations' %}"\
+          method="post"
+          enctype="multipart/form-data">      
+          {% csrf_token %}
+
+          <label for="client_org"{{ label }}></label>
+          <input type="file" name="client_org">
+
+        <button type="submit">Send</button>
+        
+    </form>
+    {% endif %}
+
+    {% if upload_resp %}
+    <div>Uploaded data count: </div>
+    <ul>
+        {% for key, value in upload_resp.items %}
+        <li>{{key}}: {{value}}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+</body>
+</html>

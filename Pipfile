@@ -4,11 +4,15 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
-djangorestframework = "*"
-python-dotenv = "*"
-psycopg2 = "*"
-openpyxl = "*"
+djangorestframework = "==3.13.1"
+python-dotenv = "==0.20.0"
+psycopg2 = "==2.9.3"
+openpyxl = "==3.0.9"
+asgiref = "==3.5.0"
+et-xmlfile = "==1.1.0"
+pytz = "==2022.1"
+sqlparse = "==0.4.2"
+Django = "==4.0.4"
 
 [dev-packages]
 
