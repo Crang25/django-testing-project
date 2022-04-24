@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% load rest_framework %}
+
+
+{% block content %}
+
+    <table align="center" class="client-table">
+        <tr>
+            <th>Name</th>
+            <th>Organizations count</th>
+            <th>Bills summ</th>
+        </tr>
+        {% for client in clients %}
+            <tr>
+                {% for key, value in client.items %}
+                    <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

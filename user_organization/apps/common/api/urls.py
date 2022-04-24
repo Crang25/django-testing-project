@@ -23,5 +23,9 @@ urlpatterns = [
         upload.BillsUpload.as_view(),
         name='bills_form'
     ),
-    path('get-clients-table/', client_data_api.get_clients_table),
+    path(
+        'get-clients-table/',
+        client_data_api.get_clients_table,
+        name='clients_table'
+    ),
 ]
